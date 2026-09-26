@@ -30,8 +30,15 @@ TC:1 Create an Account
     ClickText          New Opportunity             timeout=45
     UseModal           on
     ${OppName}         Generate Random String      3                           [NUMBERS]
-    TypeText           *Opportunity Name           ${AccountCreation.Account Name}_${OppName}
-    PickList           *Stage                      Prospecting
+    TypeText           Opportunity Name         ${AccountCreation.Account Name}_${OppName}
+    ClickText          --None--                 
+    ClickText          Prospecting
+    #PickList           Stage                     Qualification   
+    #PickList           *Stage                      Prospecting                 anchor=Amout
+    #PickList           Stage                     Qualification                 timeout=10
+    #GetPickList        Stage
+    #ClickText    Prospecting
+    #ClickText    Qualification    anchor=New Opportunity
     TypeText           Amount                      59045.99
     TypeText           Next Step                   Analasys
     ClickText          Save                        partial_match=false
