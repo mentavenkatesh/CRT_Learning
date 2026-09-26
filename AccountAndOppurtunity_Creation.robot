@@ -28,17 +28,21 @@ TC:1 Create an Account
     UseModal           off
     ClickText          Details                     timeout= 45
     ClickText          New Opportunity             timeout=45
-    UseModal           on
+    UseModal           on5555555555555
     ${OppName}         Generate Random String      3                           [NUMBERS]
-    TypeText           Opportunity Name         ${AccountCreation.Account Name}_${OppName}
-    ClickText          --None--                 
-    ClickText          Prospecting
-    #PickList           Stage                     Qualification   
-    #PickList           *Stage                      Prospecting                 anchor=Amout
-    #PickList           Stage                     Qualification                 timeout=10
-    #GetPickList        Stage
-    #ClickText    Prospecting
-    #ClickText    Qualification    anchor=New Opportunity
+    TypeText           Opportunity Name            ${AccountCreation.Account Name}_${OppName}
+    ClickText          --None--      
+    ClickElement    xpath\=//li[normalize-space(.)\='Prospecting']    timeout=10
+    #ClickElement    xpath\=//li[not(normalize-space(.)\='--None--')][2]    timeout=10
+    #ClickText          Qualification               anchor=Prospecting             partial_match=false
+    #PickList          StageName                     Qualification               timeout=10
+    #ClickText          Prospecting                 partial_match=false
+    #PickList          Stage                       Qualification
+    #PickList          *Stage                      Prospecting                 anchor=Amout
+    #PickList          Stage                       Qualification               timeout=10
+    #GetPickList       Stage
+    #ClickText         Prospecting
+    #ClickText         Qualification               anchor=New Opportunity
     TypeText           Amount                      59045.99
     TypeText           Next Step                   Analasys
     ClickText          Save                        partial_match=false
