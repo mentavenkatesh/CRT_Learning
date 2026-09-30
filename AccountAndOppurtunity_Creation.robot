@@ -28,7 +28,7 @@ TC:1 Create an Account
     UseModal           off
     ClickText          Details                     timeout= 45
     ClickText          New Opportunity             timeout=45
-    UseModal           on5555555555555
+    UseModal           on
     ${OppName}         Generate Random String      3                           [NUMBERS]
     TypeText           Opportunity Name            ${AccountCreation.Account Name}_${OppName}
     ClickText          --None--      
